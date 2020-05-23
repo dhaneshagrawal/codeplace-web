@@ -1,0 +1,15 @@
+.modal.fade.in {
+    display:block;
+}
+
+#horizontalTab.login .tab-1.resp-tab-content{
+    display:block;
+}
+
+#horizontalTab.register .tab-2.resp-tab-content{
+    display:block;
+}
+
+.w3l_login .username {
+    color : blue;
+}
