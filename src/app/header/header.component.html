@@ -1,215 +1,94 @@
-<div class="modal fade" [ngClass]="[mainDialogType == 'login' ? 'login_dialog in' : '']" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
-aria-hidden="true">
-<div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" (click)="closeDialog()" class="close" data-dismiss="modal" aria-hidden="true">
-                &times;</button>
-            <h4 class="modal-title" id="myModalLabel">Don't Wait, Login now!</h4>
+<nav class="navbar navbar-expand-lg headerColor">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+  </button>
+    <div class="active">
+      <nav>
+        <a class="navbar-brand" routerLink="">CodePlace<!-- <img src="assets/img/logo.png"> --></a>
+      </nav>
+    </div>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <nav>
+                  <!-- TODO: add class active on click to be visible -->
+                    <a routerLink="/browse" class="nav-link">
+                      <i class="fa fa-search" aria-hidden="true"></i> BROWSE CODES
+                    </a>
+                </nav>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">REQUEST CODES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">SELL CODE</a>
+              </li>
+              <li class="nav-item">
+                  <nav>
+                    <!-- TODO: add class active on click to be visible -->
+                      <a *ngIf="isLogin" routerLink="/cart" class="nav-link">
+                        CART <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span >{{cart_qty}}</span>
+                      </a>
+                      <a *ngIf="!isLogin" routerLink="/signin" class="nav-link">
+                        CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                      </a>
+                  </nav>
+              </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+        <!--  
+            <nav>
+                <a routerLink="/welcome" class="btn btn-header m-r-25">SIGN IN/UP</a>
+            </nav>
+        -->
+        <div *ngIf="!isLogin" class="dropdown">
+          <button type="button" class="btn btn-header m-r-25 dropdown-toggle" data-toggle="dropdown">
+            SIGN UP
+          </button>
+          <div class="dropdown-menu">
+            <nav>
+              <a class="dropdown-item" routerLink="/signup" >SIGN UP</a>
+              <a class="dropdown-item" routerLink="/signin">SIGN IN</a>
+            </nav>
+          </div>
         </div>
-        <div class="modal-body modal-body-sub">
-            <div class="row">
-                <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
-                    <div class="sap_tabs">	
-                        <div id="horizontalTab" [ngClass]="[dialogType == 'login' ? 'login' : 'register']" style="display: block; width: 100%; margin: 0px;">
-                            <ul>
-                                <li (click)="dialogTypeInside('login')" class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-                                <li (click)="dialogTypeInside('register')" class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-                            </ul>		
-                            <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
-                                <div class="facts">
-                                    <div class="register">
-                                        <form action="#" method="post">			
-                                            <input [(ngModel)]="email" name="Email" placeholder="Email Address" type="text" required="">						
-                                            <input [(ngModel)]="password" name="Password" placeholder="Password" type="password" required="">										
-                                            <div class="sign-up">
-                                                <input (click)="loginUserCheck()" type="submit" value="Sign in"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div> 
-                            </div>	 
-                            <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-                                <div class="facts">
-                                    <div class="register">
-                                        <form action="#" method="post">			
-                                            <input [(ngModel)]="register.name" placeholder="Name" name="Name" type="text" required="">
-                                            <input [(ngModel)]="register.email" placeholder="Email Address" name="Email" type="email" required="">
-                                            <input [(ngModel)]="register.mobile" placeholder="Mobile" name="Name" type="text" required="">	
-                                            <input [(ngModel)]="register.password" placeholder="Password" name="Password" type="password" required="">	
-                                            <input [(ngModel)]="register.re_password" placeholder="Confirm Password" name="Password" type="password" required="">
-                                            <div class="sign-up">
-                                                <input (click)="registerUser()" type="submit" value="Create Account"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> 			        					            	      
-                        </div>	
-                    </div>
-                    <script src="assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#horizontalTab').easyResponsiveTabs({
-                                type: 'default', //Types: default, vertical, accordion           
-                                width: 'auto', //auto or any width like 600px
-                                fit: true   // 100% fit in a container
-                            });
-                        });
-                    </script>
-                    <div id="OR" class="hidden-xs">OR</div>
-                </div>
-                <div class="col-md-4 modal_body_right modal_body_right1">
-                    <div class="row text-center sign-with">
-                        <div class="col-md-12">
-                            <h3 class="other-nw">Sign in with</h3>
-                        </div>
-                        <div class="col-md-12">
-                            <ul class="social">
-                                <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-                                <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-                                <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-                                <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div *ngIf="isLogin" class="dropdown">
+          <p><span class="btn btn-header m-r-25">{{welcomeUserName}}</span></p>
         </div>
-    </div>
-</div>
-</div>
-
-<!-- header modal -->
-<!-- header -->
-<div class="header" id="home1">
-<div class="container">
-    <div *ngIf="!isLogin" class="w3l_login">
-        <a href="#" (click)="openDialog()" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-    </div>
-    <div *ngIf="isLogin" class="w3l_login">
-        <p>Welcome <span class="username">{{welcomeUserName}}</span> </p>
-    </div>
-    <div class="w3l_logo">
-        <h1><a href="index.html">Code Place<span>Your Code. Your place.</span></a></h1>
-    </div>
-    <div class="search">
-        <input class="search_box" type="checkbox" id="search_box">
-        <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-        <div class="search_form">
-            <form action="#" method="post">
-                <input type="text" name="Search" placeholder="Search...">
-                <input type="submit" value="Send">
-            </form>
+        
+        <button type="button" class="btn btn-header nav-header" onclick="myFunction()">
+          <i class="fa fa-search"></i>
+        </button>
+        <div id="myDIV">
+          <form>
+            <div class="input-group searchbox mb-3">
+              <input type="text" class="form-control" placeholder="Search">
+              <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Search</button>
+              </div>
+          </div>
+        </form>
+      </div>
+      <div class="dropdown">
+        <button type="button" class="btn btn-header nav-header dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-bell"></i>
+        </button>
+        <div class="dropdown-menu lastmenu">
+          <a class="dropdown-item" href="signup.html"></a>
+            <a class="dropdown-item" href="#"></a>
         </div>
     </div>
-    <div class="cart cart box_1"> 
-        <form action="#" method="post" class="last"> 
-            <!-- TODO: on click open the checkout page directly -->
-            <button class="w3view-cart" type="submit" (click)="openCheckoutModel()" name="submit" value="">
-                <p class="total_count_checkout">{{cart_qty}}</p>
-                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-            </button>
-        </form>   
-    </div>  
-</div>
-</div>
-<!-- //header -->
-<!-- navigation -->
-<div class="navigation">
-<div class="container">
-    <nav class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header nav_2">
-            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div> 
-        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-            <ul class="nav navbar-nav">
-                <li><a href="index.html" class="act">Home</a></li>	
-                <!-- Mega Menu -->
-                <li class="dropdown" [ngClass]="[currentDropDownMenu =='products' ? 'open' : '']">
-                    <a href="javascript:void(0)" (click)="currentDropDown('products')" class="dropdown-toggle" data-toggle="dropdown">Browse Codes <b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-column columns-3">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <ul class="multi-column-dropdown">
-                                    <h6>Mobile App Codes</h6>
-                                    <li><a href="products.html">Android App Codes</a></li>
-                                    <li><a href="products.html">Windows App Codes</a></li> 
-                                    <li><a href="products.html">IOS App Codes</a></li>
-                                    <li><a href="products.html">All App Codes<span>New</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-3">
-                                <ul class="multi-column-dropdown">
-                                    <h6>Frontend Codes</h6>
-                                    <li><a href="products1.html">Javascript Codes</a></li>
-                                    <li><a href="products1.html">React Codes <span>New</span></a></li>
-                                    <li><a href="products1.html">HTML,CSS Codes</a></li>
-                                    <li><a href="products.html">All Frontend Codes<span>New</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-2">
-                                <ul class="multi-column-dropdown">
-                                    <h6>Backend Codes</h6>
-                                    <li><a href="products2.html">Java Codes</a></li>
-                                    <li><a href="products2.html">C++ Codes</a></li>
-                                    <li><a href="products2.html">Python Codes</a></li>
-                                    <li><a href="products.html">All Backend Codes<span>New</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="w3ls_products_pos">
-                                    <h4>30%<i>Off/-</i></h4>
-                                    <img src="assets/images/1.jpg" alt=" " class="img-responsive" />
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </ul>
-                </li>
-<!--					<li><a href="about.html">About Us</a></li> -->	
-                <li><a href="about.html">Sell Codes</a></li>  
-                <li><a href="about.html">About Us</a></li>  
-                <li *ngIf="isLogin" (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
-            </ul>
+      <div class="dropdown">
+        <button type="button" class="btn btn-header nav-header dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-user"></i>
+        </button>
+        <div *ngIf="isLogin" class="dropdown-menu lastmenu">
+          <nav>
+            <a (click)="logout()" routerLink="" class="dropdown-item">Logout</a>
+          </nav>
         </div>
-    </nav>
-</div>
-</div>
-
-<div  [ngClass]="[mainDialogType == 'checkout' ? 'checkout_dialog' : '']" id="w3lssbmincart">
-    <form method="post" class="" target="">   
-    <button type="button" (click)="closeDialog()" class="sbmincart-closer">×</button>  
-            <ul>        
-              <li *ngFor="let cartObjItem of  cartObj" class="sbmincart-item sbmincart-item-changed">       
-                       <div class="sbmincart-details-name">             
-                      <a class="sbmincart-name">{{cartObjItem.productName}}</a>      
-                        <ul class="sbmincart-attributes">                                                            
-                       </ul>     
-                   </div>         
-                   <div class="sbmincart-details-quantity"> 
-                         <input class="sbmincart-quantity" data-sbmincart-idx="0" name="quantity_1" type="text" value="1" autocomplete="off">       
-                   </div>         
-                   <div class="sbmincart-details-remove">          
-                       <button type="button" class="sbmincart-remove" data-sbmincart-idx="0">×</button>     
-                   </div>        
-                   <div class="sbmincart-details-price">           
-                     <span class="sbmincart-price">{{cartObjItem.price}}</span>       
-                   </div>     
-           </li>   
-                                                                                                                
-         </ul>  
-         <div class="sbmincart-footer">       
-           <div class="sbmincart-subtotal">  
-           Subtotal: {{cartTotalPrice}}   																				
-         </div>       
-         <button class="checkoutBtn" (click)="checkout_btn()">Checkout Cart</button>
-          </div>  
-        <input type="hidden" name="bn" value="sbmincart_AddToCart_WPS_US">   
-      </form></div>
+    </div>
+    </div>
+  </div>
+</nav>
+<!--================================ Header End ===========================-->

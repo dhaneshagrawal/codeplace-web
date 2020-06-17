@@ -1,0 +1,92 @@
+<section class="p-tb-70">
+		
+    <div class="container-fluid">
+        <div class="row p-lr-30">
+            
+            <div class="col-md-7 col-lg-7 col-xl-7">
+                
+                <div class="table-responsive cart-tabel">
+                    <div class="w-100"><p class="cart-title">Shopping Cart</p></div>
+                    <table class="table table-borderless">
+                        <div>
+                        <tr *ngFor="let cart of cartObj" class="border-top-none">
+                            <td>
+                                <div class="cart-p-img">
+                                    <img src="assets/img/placeholder.png">
+                                </div>
+                            </td>
+                            <td>
+                                <p class="cart-p-name">{{cart.productName}}</p>
+                                <p class="cart-des">Descriptions of item</p>
+                                <a href="#" class="cart-edit">Edit</a>
+                            </td>
+                            <td>
+                                <select class="form-control cart-select">
+                                    <option>Full Payment</option>
+                                    <option>Full Payment</option>
+                                </select>
+                                <!-- TODO : Add user name for seller -->
+                                <span class="cart-seller">Seller : XYZ Tech</span>
+                            </td>
+                            <td>
+                                <p class="cart-price ">$ {{cart.price}}</p>
+                            </td>
+                            <td>
+                                <a  (click)="removeCartById(cart)" class="cart-close"><i class="fa fa-times"></i></a>
+                                <!-- <button (click)="removeCartById(cart)" type="button" class="sbmincart-remove" data-sbmincart-idx="0">×</button> -->
+                            </td>
+                        </tr>
+                    </div>
+                        <tr class="cart-total">
+                            <td colspan="5">Total : $ {{cartTotalPrice}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="continue-browsing">
+                    <nav>
+                          <a routerLink="/browse" class="nav-link">
+                            Continue Browsing
+                          </a>
+                      </nav>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+                <div class="cart-bg-color">
+                    <p class="cart-title m-b-5">ORDER SUMMARY</p>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <tr *ngFor="let cart of cartObj" class="">
+                                <td>
+                                    <p class="m-b-5">{{cart.productName}}</p> 
+                                </td>
+                                <td class="text-center">
+                                    <p class="m-b-5">$ {{cart.price}}</p> 
+                                </td>
+                            </tr>
+                            <tr class="cart-border-top m-tt">
+                                <td>Delivery Email Address :</td>
+                                <td class="text-center"><img src="assets/img/email-24px.png"><a href="#" class="email">xyz@gma.com</a></td>
+                            </tr>
+                            <tr class="cart-border-top">
+                                <td><p class="font-w">TOTAL COST</p></td>
+                                <td class="text-center"><p class="font-w">$ {{cartTotalPrice}}</p></td>
+                            </tr>
+                            <tr class="cart-border-none">
+                                <td><p class="font-w">PROMOTIONAL CODE</p></td>
+                                <td class="text-center"><p class="font-w">+</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="cart-checkout">
+                    <nav>
+                        <a routerLink="/payment" class="nav-link">
+                            CHECKOUT
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

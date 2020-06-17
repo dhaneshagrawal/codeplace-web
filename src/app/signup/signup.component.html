@@ -1,0 +1,124 @@
+<section class="p-tb-70 bg-color">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="buyer-left">
+                    <p class="b-title">CodePlace</p>
+                    <h3>Explore the word of "Hello World"!</h3>
+                    <p class="b-mini-title">Already a member? </p>
+                    <nav>
+                        <a routerLink="/signin"> Sign in </a>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="buyer-right">
+                    <p class="signup-title">Sign up</p>
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-8">
+                            <form class="sign-form needs-validation" id="myForm" novalidate >
+                                <div class="form-group">
+                                    <label>Name</label>
+                                      <input [(ngModel)]="register.name" placeholder="" name="Name" type="text" class="form-control" id="" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Please enter name
+                                    </div>
+                                    <div class="valid-feedback feedback-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="invalid-feedback feedback-icon">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                      <input [(ngModel)]="register.email" placeholder="" name="Email" type="email" required="" type="email" class="form-control" id="">
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Please enter email address
+                                    </div>
+                                    <div class="valid-feedback feedback-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="invalid-feedback feedback-icon">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                      <input [(ngModel)]="register.mobile" placeholder="" name="Name" type="text" class="form-control" id="" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Please enter phone number
+                                    </div>
+                                    <div class="valid-feedback feedback-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="invalid-feedback feedback-icon">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>User Name</label>
+                                      <input type="text" class="form-control" id="" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Please enter user name
+                                    </div>
+                                    <div class="valid-feedback feedback-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="invalid-feedback feedback-icon">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                      <input [(ngModel)]="register.password" placeholder="" name="Password" type="password" class="form-control" id="" required>
+                                      <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                          Please enter password
+                                    </div>
+                                    <div class="valid-feedback feedback-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="invalid-feedback feedback-icon">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                </div>
+                                  <div class="form-group">
+                                    <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                        <label class="form-check-label" for="invalidCheck2">
+                                            Creating an account means you’re okay with our Terms of Service, Privacy Policy, and our default Notification Settings.
+                                        </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="text-center">
+                                      <button (click)="registerUser()" class="btn btn-create-ac" id="submitButton" type="submit">Create Account</button>
+                                  </div>
+                                  
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -40,6 +40,7 @@ export class CartServiceService {
       "price":obj.price
     }
     this.http.postRequestWithToken("api/addtocart/addProduct",request).subscribe((data:any)=>{
+      alert("Product added successfully");
       this.getCartDetailsByUser()
     },
     error=>{

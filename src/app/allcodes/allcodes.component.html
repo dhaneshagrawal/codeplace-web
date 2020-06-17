@@ -1,0 +1,31 @@
+
+<section class="">
+    <div class="row">
+        <div *ngFor="let data of productsList; let i = index" class="col-md-3 col-lg-3 col-xl-3">
+            <div class="product-box daypost">
+                <div class="img-box">
+                    <div class="code imgcode">
+                        <a href="#"> codeshop reviewed <i class="fa fa-check"></i></a>
+                        <p class="timepost"> <img src="assets/img/Path31.png"> 1h ago</p>
+                    </div>
+                      <!-- <img src="assets/imgages/placeholderq.png"> -->
+                      <img src="assets/images/{{i}}.jpg" />
+                    <button type="button" class="btn btn-addtocart">{{data.price}} <img src="assets/img/p-up.png"></button>
+                    <a href="#" class="save-btn"><img src="assets/img/save-24.png"></a>
+                </div>
+                <div class="product-details">
+                    <div class="float-left w-60">
+                        <a href="#" class="p-name">{{data.name}}</a>
+                        <p class="p-d-text">
+                            23.6k sales
+                        </p>
+                    </div>
+                    <div class="float-right w-40">
+                        <button (click)="addCart(data)" type="submit" class="p-save">Add to cart</button>
+                        <!-- <a href="#" class="p-save"> Add to Cart</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>						
+    </div>
+</section>

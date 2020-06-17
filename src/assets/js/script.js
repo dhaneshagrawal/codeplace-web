@@ -1,29 +1,24 @@
+$(document).ready(function() {
 
-$(document).ready(function(){
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
 
-	/* ---- Countdown timer ---- */
-
-	$('#counter').countdown({
-		timestamp : (new Date()).getTime() + 11*24*60*60*1000
-	});
-
-
-	/* ---- Animations ---- */
-
-	$('#links a').hover(
-		function(){ $(this).animate({ left: 3 }, 'fast'); },
-		function(){ $(this).animate({ left: 0 }, 'fast'); }
-	);
-
-	$('footer a').hover(
-		function(){ $(this).animate({ top: 3 }, 'fast'); },
-		function(){ $(this).animate({ top: 0 }, 'fast'); }
-	);
-
- 
-
-	 
-
-
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
 });

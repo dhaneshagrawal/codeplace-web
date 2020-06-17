@@ -7,6 +7,14 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { HeaderComponent } from './header/header.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SignupComponent } from './signup/signup.component';
+import { FooterComponent } from './footer/footer.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { SigninComponent } from './signin/signin.component';
+import { BrowsecodesComponent } from './browsecodes/browsecodes.component';
+import { AllcodesComponent } from './allcodes/allcodes.component';
+import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -14,7 +22,15 @@ import { CheckoutComponent } from './checkout/checkout.component';
     AppComponent,
     IndexComponent,
     HeaderComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SignupComponent,
+    FooterComponent,
+    WelcomeComponent,
+    SigninComponent,
+    BrowsecodesComponent,
+    AllcodesComponent,
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

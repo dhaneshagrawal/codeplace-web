@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient ,HttpErrorResponse} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { throwError } from 'rxjs'
 import { HttpHeaders } from '@angular/common/http';
 import { map, filter, scan,catchError,tap } from 'rxjs/operators';
+import {Router} from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -13,11 +15,16 @@ const httpOptions = {
 })
 
 export class HttpServiceService {
+
+  public loginServiceEvent = new BehaviorSubject({});
   // url = "http://localhost:5000/";
+
+  // url = "http://localhost:8080/";
+
   
   url = "http://codeplace-env.eba-gmzx2m4s.eu-west-1.elasticbeanstalk.com/";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   postRequest(url:string,param:{}){
     return this.http.post(this.url+url,param,httpOptions)
@@ -65,7 +72,8 @@ export class HttpServiceService {
      return localStorage.getItem("token")
   }
   logout(){
-    localStorage.setItem("token","")
+    localStorage.setItem("token","");
+    this.router.navigate([""]);
   }
   isLogin(){
     try {
